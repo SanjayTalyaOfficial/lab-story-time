@@ -1,35 +1,39 @@
-function moreAboutHome()
-{
-    
-}
-
 //Progression 1:
 //We've got some basic info about Karen's home
 //Debug the type of data provided
 //Return the types concatenated in a single variable
+function moreAboutHome(address, distanceFromTown, hasNeighbours)
+{
+    return typeof address+typeof distanceFromTown+typeof hasNeighbours ;
+}
 
 //Progression 2:
 //Check if the data given is of the right type
 //parents = String, noOfSiblings = Number, isNuclearFamily = Boolean
-function moreAboutKaren()
+function moreAboutKaren(parents, noOfSiblings, isNuclearFamily)
 {
+    let a=typeof parents;
+    let b=typeof noOfSiblings;
+    let c=typeof isNuclearFamily;
+    if((a=="string")&&(b=="number")&&(c=="boolean"))
+    return true;
+    else
+    return false;
+
 }
 
 //Progression 3:
 //Lily is suspicious about Karen's new friend
 //Karen tells her friend's age and even writes it down
 //Check which one those is not a number (NaN) and return that value
-
-function doesFriendExist(ageInNumber)
+function doesFriendExist(ageInText, ageInNumber)
 {
-    var ageInNumber=20;
-    if(ageInNumber==NaN)
-    {
-        document.write("age in Text is not a number");
-    }
-    else{
-        document.write("age in Number is not a number")
-    }
+    if(ageInText=="NaN")
+    return ageInText;
+    else if(ageInNumber=="NaN")
+    return ageInNumber;
+    else
+    return NaN;
 }
 
 //Progression 4:
@@ -38,35 +42,38 @@ function doesFriendExist(ageInNumber)
 //On her way to the river, she ate another z sweets every n meters travelled
 //Her friend divided the remaining sweets into 2 parts for each
 //How many sweets did her friend get to eat?
-
-var lilyKaren =x;
-var karenAte = y;
-var sweetsConsumedByKaren = z;
-var metersToTravel = n;
-var totalNoOfSweets = a;
-var sweetsConsumedInMeters = z*n;
-y = ((y+x+sweetsConsumedInMeters);
-var remain = v;
-v = y/a;
-var eachOfThem;
-eachOfThem = v/2;
-
-
-function sweetTooth()
+function sweetTooth(totalNoOfSweets, sweetsConsumedByKaren, sweetsConsumedInNMeters, metersToTravel)
 {
-    return eachOfThem;
+    totalNoOfSweets =totalNoOfSweets-sweetsConsumedByKaren;
+    var c=metersToTravel*sweetsConsumedInNMeters;
+    if(c<=totalNoOfSweets)
+    {
+    totalNoOfSweets -=c;
+    return totalNoOfSweets/2;
+    }
+    else
+    return "No sweets for Karen's friend";
 }
 
 //Progression 5:
 //As Lily moves closer, it gets colder. She checks the temperature on her mobile
 //It only shows in fahrenheit. Convert the data to celsius and return it.
-function farenheitToCelcius(fahrenheit)
-{
-    var celcius = (5/9) * (fahrenheit - 32);
-    return celcius;
 
-}
-
+   function convertToCelsius(fahrenheit)
+   {
+       let a= typeof fahrenheit;
+       if(a=="undefined")
+       return "Technical Error!";
+       else if(a=="object")
+       return "Technical Error!";
+       else if(a=="string")
+       return "Technical Error!";
+       else
+       {
+       var c= (fahrenheit-32)*5/9;
+       return c;
+       }
+   }
 //Progression 6:
 //Lily can now do multiple things to deal with this
 //1. Take her daughter to a doctor
@@ -76,14 +83,35 @@ function farenheitToCelcius(fahrenheit)
 //Given a value, return which of these above actions Lily would take
 function aDifficultChoice(choice)
 {
+    let c;
+    if(choice==-1)
+    return "Break down and give up all hope";
+
+    else 
+    {
+        var a=typeof choice;
+        if(a=="undefined")
+        return "Wasn't able to decide";
+        if(choice=="I give up")
+        return "Refused to do anything for Karen";
+    }
     switch(choice)
     {
-        case 1: "Take her daughter to a doctor"; break; 
-        case 2: "Talk to her husband about it"; break;
-        case 3: "Counsel her daughter herself"; break;
-        case 4: "Lock her daughter in her room"; break;  
+        case 1 :c= "Take her daughter to a doctor";
+                        break;
+         case 2 : c= "Talk to her husband about it";
+                        break;
+         case 3 : c=   "Counsel her daughter herself";
+                      break;
+          case 4 : c= "Lock her daughter in her room";
+                          break;
+                           default :c=nothing;
+                           break;     
+                                                       
     }
+    return c;
 }
+
 //Progression 7:
 //Lily realized that she'd hurt her daughter
 //All she wants now is for her to stop crying
@@ -92,14 +120,12 @@ function aDifficultChoice(choice)
 //Take all of Lily's strategies and concatenate them to a single var
 //Seperate the strategies by a single space
 //Return the length of the complete strategy
-function consoleKaren()
-{
-    var str1="strategy 1";
-    var str2="strategy 2";
-    var str3="strategy 3";
-    var str4="strategy 4";
-    var str5="strategy 5";
-    var str6="strategy 6";
-    var res = st1.concat(str2, str3, str4, str5, str6);
-    var length = res.length;
+function consoleKaren(strategies)
+{ let c ="";
+    for(var i=0;i<strategies.length;i++)
+    c=c+strategies[i]+" ";
+    var l=c.length-1;
+    return l;
+
+
 }
